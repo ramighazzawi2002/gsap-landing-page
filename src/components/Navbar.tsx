@@ -21,17 +21,17 @@ const Navbar = () => {
         <nav>
             <div>
                 <a href={"#home"} className={"flex items-center gap-2"}>
-                    <img src={"./images/logo.png"} alt="logo"/>
-                    <p>Velvet Pour</p>
+                    <img src={"./images/logo.jpg"} alt="logo" width={35} style={{borderRadius: 30}}/>
+                    <p>Pure Sips</p>
                 </a>
+                <ul>
+                    {navLinks.map((link) => (
+                        <li key={link?.id}>
+                            <a href={`#${link?.id}`}>{link?.title}</a>
+                        </li>
+                    ))}
+                </ul>
             </div>
-            <ul>
-                {navLinks.map((link) => (
-                    <li key={link?.id}>
-                        <a href={`#${link?.id}`}>{link?.title}</a>
-                    </li>
-                ))}
-            </ul>
         </nav>
     )
 

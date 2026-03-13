@@ -1,73 +1,58 @@
-# React + TypeScript + Vite
+# JSM Cocktail Bar — GSAP Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully animated cocktail bar landing page built with React, TypeScript, GSAP, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a single-page marketing website for **JSM Cocktail Bar**, featuring smooth scroll-triggered animations powered by GSAP. It showcases the bar's cocktail menu, brand story, gallery art, and contact/location info.
 
-## React Compiler
+## Sections
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Navbar** — Fixed navigation with links to each section
+- **Hero** — Full-screen animated intro
+- **Cocktails** — Animated showcase of featured cocktails (Classic Mojito, Raspberry Mojito, Violet Breeze, Curacao Mojito)
+- **About** — Brand story with feature highlights and team profiles
+- **Art** — Visual gallery section
+- **Menu** — Drinks menu split into cocktails and mocktails with pricing
+- **Contact** — Store address, opening hours, and social links
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Tool | Version |
+|------|---------|
+| React | 19 |
+| TypeScript | 5.9 |
+| GSAP | 3.14 (ScrollTrigger, SplitText) |
+| Tailwind CSS | 4 |
+| Vite | 7 |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Build for production:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run build
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Navbar.tsx
+│   ├── Hero.tsx
+│   ├── Cocktails.tsx
+│   ├── About.tsx
+│   ├── Art.tsx
+│   ├── Menu.tsx
+│   └── Contact.tsx
+├── constants/
+│   └── index.ts     # All static data (menu items, store info, socials)
+├── App.tsx
+└── main.tsx
 ```

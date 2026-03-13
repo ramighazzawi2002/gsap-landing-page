@@ -51,7 +51,7 @@ const Art = () => {
                         }
                     </ul>
                     <div className={"cocktail-img"}>
-                        <img src={"/images/under-img.jpg"} alt={"cocktail"} className={"abs-center masked-img size-full object-contain"} />
+                        <img src={"/images/under-img.jpg"} alt={"drink"} className={"abs-center masked-img size-full object-contain"} />
                     </div>
                     <ul className={"space-y-4 will-fade"}>
                         {featureLists.map((feature, index) => (
@@ -65,7 +65,7 @@ const Art = () => {
                 </div>
                 <div className={"masked-container"}>
                     <h2 className={"will-fade"}>
-                         Sip-Worthly Perfection
+                         Sip-Worthy Perfection
                     </h2>
                     <div id={"masked-content"}>
                         <h3>Made with Crafts, Poured with Passion</h3>

@@ -1,4 +1,4 @@
-import {cocktailLists, mockTailLists} from "../constants";
+import {freshJuiceLists, mockTailLists} from "../constants";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 export const Cocktails = () => {
@@ -25,8 +25,8 @@ export const Cocktails = () => {
             <img src={"./images/cocktail-right-leaf.png"} id={"c-right-leaf"}/>
             <div className={"list"}>
                 <div className={"popular"}>
-                    <h2>Most popular cocktails:</h2>
-                    <ul>{cocktailLists.map(({name, country, detail, price}) => (
+                    <h2>Our Signature Blends:</h2>
+                    <ul>{freshJuiceLists.map(({name, country, detail, price}) => (
                         <li key={name}>
                             <div className={"md:me-28"}>
                                 <h3>{name}</h3>

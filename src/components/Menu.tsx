@@ -1,23 +1,23 @@
-import {allCocktails} from "../constants";
+import {allDrinks} from "../constants";
 import {useRef, useState} from "react";
 import {useGSAP} from "@gsap/react";
 import gsap from "gsap";
 
 export const Menu = () => {
     const [currentIndex, setCurrentIndex] = useState<number>(0)
-    const totalCocktails = allCocktails.length;
+    const totalDrinks = allDrinks.length;
     const goToSlide = (index: number) => {
-        const newIndex = (index + totalCocktails) % totalCocktails
+        const newIndex = (index + totalDrinks) % totalDrinks
         setCurrentIndex(newIndex)
     }
 
-    const getCocktailAt = (indexOffset: number) => {
-        return allCocktails[(currentIndex + indexOffset + totalCocktails) % totalCocktails]
+    const getDrinkAt = (indexOffset: number) => {
+        return allDrinks[(currentIndex + indexOffset + totalDrinks) % totalDrinks]
     }
 
-    const currentCocktail = getCocktailAt(0);
-    const prevCocktail = getCocktailAt(-1);
-    const nextCocktail = getCocktailAt(1);
+    const currentDrink = getDrinkAt(0);
+    const prevDrink = getDrinkAt(-1);
+    const nextDrink = getDrinkAt(1);
     const contentRef = useRef(null);
 
     useGSAP(() => {
@@ -44,17 +44,17 @@ export const Menu = () => {
             <img src={"/images/slider-left-leaf.png"} alt={"left-leaf"} id={"m-left-leaf"}/>
             <img src={"/images/slider-right-leaf.png"} alt={"right-leaf"} id={"m-right-leaf"}/>
             <h2 id={"menu-heading"} className={"sr-only"}>
-                Cocktail Menu
+                Drink Menu
             </h2>
-            <nav className={"cocktail-tabs"} aria-labelled={"cocktail-navigation"}>
-                {allCocktails.map((cocktail, index) => {
+            <nav className={"cocktail-tabs"} aria-labelled={"drink-navigation"}>
+                {allDrinks.map((drink, index) => {
                     const isActive = index === currentIndex;
                     return (
-                        <button key={cocktail.id}
+                        <button key={drink.id}
                                 className={`${isActive ? "text-white border-white" : "tet-white/50 border-white/50 "}`}
                                 onClick={() => goToSlide(index)}
                         >
-                            {cocktail.name}
+                            {drink.name}
                         </button>
                     )
                 })}
@@ -62,25 +62,25 @@ export const Menu = () => {
             <div className={"content"}>
                 <div className={"arrows"}>
                     <button className={"text-left"} onClick={() => goToSlide(currentIndex - 1)}>
-                        <span>{prevCocktail.name}</span>
+                        <span>{prevDrink.name}</span>
                         <img src={"/images/right-arrow.png"} alt={"right-arrow"} aria-hidden={true}/>
                     </button>
                     <button className={"text-left"} onClick={() => goToSlide(currentIndex + 1)}>
-                        <span>{nextCocktail.name}</span>
+                        <span>{nextDrink.name}</span>
                         <img src={"/images/left-arrow.png"} alt={"left-arrow"} aria-hidden={true}/>
                     </button>
                 </div>
                 <div className={"cocktail"}>
-                    <img src={currentCocktail.image} className={"object-contain"} alt={"cocktail"}/>
+                    <img src={currentDrink.image} className={"object-contain"} alt={"drink"}/>
                 </div>
                 <div className="recipe">
                     <div className="info" ref={contentRef}>
                         <p>Recipe for:</p>
-                        <p id={"title"}>{currentCocktail.name}</p>
+                        <p id={"title"}>{currentDrink.name}</p>
                     </div>
                     <div className="details">
-                        <h2>{currentCocktail.title}</h2>
-                        <p>{currentCocktail.description}</p>
+                        <h2>{currentDrink.title}</h2>
+                        <p>{currentDrink.description}</p>
                     </div>
                 </div>
             </div>

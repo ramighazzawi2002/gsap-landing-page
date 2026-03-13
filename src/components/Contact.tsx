@@ -28,13 +28,13 @@ export const Contact = () => {
             <div className={"content"}>
                 <h2>Where to find us</h2>
                 <div>
-                    <h3>Visit Our Bar</h3>
+                    <h3>Visit Us</h3>
                     <p>456, Raq Blvd. #404, Los Angeles, CA 90210</p>
                 </div>
                 <div>
                     <h3>Contact Us</h3>
                     <p>(555) 987-6543</p>
-                    <p>hello@jsmcocktail.com</p>
+                    <p>hello@velvetpour.com</p>
                 </div>
                 <div>
                     <h3>Open Every Day</h3>
